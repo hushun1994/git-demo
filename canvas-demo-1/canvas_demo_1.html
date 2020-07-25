@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>canvas</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+
+    <script>
+      const canvas = document.getElementById("canvas");
+      canvas.width = document.documentElement.clientWidth;
+      canvas.height = document.documentElement.clientHeight;
+      const ctx = canvas.getContext("2d");
+
+      var isTouchDevice = "ontouchstart" in document.documentElement;
+      console.log(isTouchDevice);
+
+      ctx.fillStyle = "black";
+      ctx.strokeStyle = "none";
+      ctx.lineWidth = 8;
+      ctx.lineCap = "round";
+
+      let painting = false;
+
+      function drawLine(x1, y1, x2, y2) {
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+      }
+
+      let x, y;
+
+      if (isTouchDevice) {
+        canvas.ontouchstart = (e) => {
+          // let painting = false;
+          x = e.touches[0].clientX;
+          y = e.touches[0].clientY;
+        };
+        canvas.ontouchmove = (e) => {
+          drawLine(x, y, e.touches[0].clientX, e.touches[0].clientY);
+          x = e.touches[0].clientX;
+          y = e.touches[0].clientY;
+          // ctx.beginPath();
+          // ctx.arc(
+          //   e.touches[0].clientX,
+          //   e.touches[0].clientY,
+          //   10,
+          //   0,
+          //   2 * Math.PI
+          // );
+          // ctx.stroke();
+          // ctx.fill();
+        };
+      } else {
+        canvas.onmousedown = (e) => {
+          painting = true;
+          x = e.clientX;
+          y = e.clientY;
+        };
+
+        canvas.onmousemove = (e) => {
+          if (painting === true) {
+            drawLine(x, y, e.clientX, e.clientY);
+            x = e.clientX;
+            y = e.clientY;
+            // ctx.beginPath();
+            // ctx.arc(e.clientX, e.clientY, 10, 0, 2 * Math.PI);
+            // ctx.stroke();
+            // ctx.fill();
+          } else {
+            // console.log("啥也不做");
+          }
+        };
+
+        canvas.onmouseup = () => {
+          painting = false;
+        };
+      }
+    </script>
+  </body>
+</html>
