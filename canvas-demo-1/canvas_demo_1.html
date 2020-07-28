@@ -36,7 +36,6 @@
 
       if (isTouchDevice) {
         canvas.ontouchstart = (e) => {
-          // let painting = false;
           x = e.touches[0].clientX;
           y = e.touches[0].clientY;
         };
@@ -44,16 +43,6 @@
           drawLine(x, y, e.touches[0].clientX, e.touches[0].clientY);
           x = e.touches[0].clientX;
           y = e.touches[0].clientY;
-          // ctx.beginPath();
-          // ctx.arc(
-          //   e.touches[0].clientX,
-          //   e.touches[0].clientY,
-          //   10,
-          //   0,
-          //   2 * Math.PI
-          // );
-          // ctx.stroke();
-          // ctx.fill();
         };
       } else {
         canvas.onmousedown = (e) => {
@@ -67,10 +56,6 @@
             drawLine(x, y, e.clientX, e.clientY);
             x = e.clientX;
             y = e.clientY;
-            // ctx.beginPath();
-            // ctx.arc(e.clientX, e.clientY, 10, 0, 2 * Math.PI);
-            // ctx.stroke();
-            // ctx.fill();
           } else {
             // console.log("啥也不做");
           }
