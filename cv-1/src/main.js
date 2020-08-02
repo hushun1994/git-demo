@@ -1,0 +1,68 @@
+let html = document.querySelector("#html");
+let style = document.querySelector("#style");
+
+let n = -1;
+
+let str = `/**
+ * 你好，我是一名前端新人
+ * 接下来我要加样式了
+ * 我要加的样式是
+ **/
+/*画一个圆*/
+#div1 {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  border: none;
+  box-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+/*八卦是阴阳形成的一黑一白，添加一对双子星*/
+#div1 {
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%);
+}
+#div1::before {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #000;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 25%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 100%);
+}
+#div1::after {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #fff;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%);
+}
+`;
+
+let str2 = "";
+
+function step() {
+  setTimeout(() => {
+    if (n + 1 < str.length) {
+      n += 1;
+      // str2 += str[n] === "\n" ? "<br>" : str[n];
+      if (str[n] === "\n") {
+        str2 += "<br>";
+      } else if (str[n] === " ") {
+        str2 += "&nbsp";
+      } else {
+        str2 += str[n];
+      }
+      html.innerHTML = str2;
+      window.scrollTo(0, 99999);
+      html.scrollTo(0, 99999);
+      style.innerHTML = str.substring(0, n);
+      step();
+    }
+  }, 30);
+}
+
+step();
