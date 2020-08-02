@@ -62,7 +62,7 @@ function step() {
       style.innerHTML = str.substring(0, n);
       step();
     }
-  }, 30);
+  }, 15);
 }
 
 step();
