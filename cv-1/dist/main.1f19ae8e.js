@@ -121,7 +121,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 var html = document.querySelector("#html");
 var style = document.querySelector("#style");
 var n = -1;
-var str = "/**\n * \u4F60\u597D\uFF0C\u6211\u662F\u4E00\u540D\u524D\u7AEF\u65B0\u4EBA\n * \u63A5\u4E0B\u6765\u6211\u8981\u52A0\u6837\u5F0F\u4E86\n * \u6211\u8981\u52A0\u7684\u6837\u5F0F\u662F\n **/\n/*\u753B\u4E00\u4E2A\u5706*/\n#div1 {\n  border-radius: 50%;\n  width: 200px;\n  height: 200px;\n  border: none;\n  box-shadow: 0 0 3px rgba(0,0,0,0.5);\n}\n/*\u516B\u5366\u662F\u9634\u9633\u5F62\u6210\u7684\u4E00\u9ED1\u4E00\u767D\uFF0C\u6DFB\u52A0\u4E00\u5BF9\u53CC\u5B50\u661F*/\n#div1 {\n  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%);\n}\n#div1::before {\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  background: #000;\n  left: 50%;\n  top: 0;\n  transform: translateX(-50%);\n  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 25%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 100%);\n}\n#div1::after {\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  background: #fff;\n  left: 50%;\n  bottom: 0;\n  transform: translateX(-50%);\n  background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%);\n}\n";
+var str = "/**\n * \u4F60\u597D\uFF0C\u6211\u662F\u4E00\u540D\u524D\u7AEF\u65B0\u4EBA\n * \u63A5\u4E0B\u6765\u6211\u8981\u52A0\u6837\u5F0F\u4E86\n * \u6211\u8981\u52A0\u7684\u6837\u5F0F\u662F\n **/\n/*\u753B\u4E00\u4E2A\u5706*/\n#div1 {\n  border-radius: 50%;\n  width: 200px;\n  height: 200px;\n  border: none;\n  box-shadow: 0 0 3px rgba(0,0,0,0.5);\n}\n/*\u516B\u5366\u662F\u9634\u9633\u5F62\u6210\u7684\u4E00\u9ED1\u4E00\u767D\uFF0C\u6DFB\u52A0\u4E00\u5BF9\u53CC\u5B50\u661F*/\n#div1 {\n  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%);\n}\n#div1::before {\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  background: #000;\n  left: 50%;\n  top: 0;\n  transform: translateX(-50%);\n  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 25%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 100%);\n}\n#div1::after {\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  background: #fff;\n  left: 50%;\n  bottom: 0;\n  transform: translateX(-50%);\n  background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%);\n}\n/* \u5F62\u4E0D\u9022\u5F71\uFF0C\u5F71\u4E0D\u79BB\u5F62\uFF0C\u9634\u9633\u53CC\u751F\uFF0C\u5F62\u5F71\u4E0D\u79BB\u3002*/\n@keyframes action {\n  0% {\n    transform: rotate(0deg);\n  }\n  50% {\n    transform: rotate(180deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n#div1 {\n  animation: action 2s linear 1s infinite;\n}\n";
 var str2 = "";
 
 function step() {
@@ -143,7 +143,7 @@ function step() {
       style.innerHTML = str.substring(0, n);
       step();
     }
-  }, 30);
+  }, 15);
 }
 
 step();
@@ -175,7 +175,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51277" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55914" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

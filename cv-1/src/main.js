@@ -40,6 +40,21 @@ let str = `/**
   transform: translateX(-50%);
   background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%);
 }
+/* 形不逢影，影不离形，阴阳双生，形影不离。*/
+@keyframes action {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#div1 {
+  animation: action 2s linear 1s infinite;
+}
 `;
 
 let str2 = "";
