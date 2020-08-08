@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom_ku演示</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #test,
+      #empty,
+      #sibling,
+      #travel {
+        margin-bottom: 10px;
+        padding: 3px 5px;
+        background-color: antiquewhite;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="test">
+      <h3 class="red">test</h3>
+      <div class="green">test1</div>
+      <div class="green">test2</div>
+      <div class="green">test3</div>
+    </div>
+
+    <div id="empty">
+      <h3>empty</h3>
+      <div class="green">e1</div>
+      <div class="green">e2</div>
+      <div class="green">e3</div>
+    </div>
+
+    <div id="sibling">
+      <h3>sibling</h3>
+      <div class="green">s1</div>
+      <div class="green">s2</div>
+      <div class="green">s3</div>
+    </div>
+
+    <div id="travel">
+      <h3>travel</h3>
+      <div class="green">t1</div>
+      <div class="green">t2</div>
+      <div class="green">t3</div>
+    </div>
+
+    <script src="./dom.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
