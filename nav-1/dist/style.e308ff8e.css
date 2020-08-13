@@ -28,7 +28,7 @@ body {
 @media (min-width: 500px) {
   body {
     background-color: #eee;
-    background-image: url("./images/nav_bkg_1.jpg");
+    background-image: url("/nav_bkg_1.3d978e7d.jpg");
     background-size: cover;
   }
 }
@@ -175,3 +175,6 @@ body {
   font-size: 14px;
   margin-top: 4px;
 }
+
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */
