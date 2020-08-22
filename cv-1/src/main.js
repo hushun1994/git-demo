@@ -1,10 +1,12 @@
 let html = document.querySelector("#html");
 let style = document.querySelector("#style");
 
+let timer;
+let delay = 30;
 let n = -1;
 
 let str = `/**
- * 你好，我是一名前端新人
+ * 你好，这是一个dynamic html demo
  * 接下来我要加样式了
  * 我要加的样式是
  **/
@@ -52,15 +54,15 @@ let str = `/**
     transform: rotate(360deg);
   }
 }
-#div1 {
+#div1:hover {
   animation: action 2s linear 1s infinite;
 }
 `;
 
 let str2 = "";
 
-function step() {
-  setTimeout(() => {
+function step(delay) {
+  timer = setTimeout(() => {
     if (n + 1 < str.length) {
       n += 1;
       if (str[n] === "\n") {
@@ -74,9 +76,29 @@ function step() {
       window.scrollTo(0, 99999);
       html.scrollTo(0, 99999);
       style.innerHTML = str.substring(0, n);
-      step();
+      step(delay);
     }
-  }, 15);
+  }, delay);
 }
 
-step();
+function debounce(fn, delay) {
+  clearTimeout(timer);
+  fn(delay);
+}
+
+debounce(step, delay);
+
+slow.onclick = () => {
+  delay = 60;
+  debounce(step, delay);
+};
+
+average.onclick = () => {
+  delay = 30;
+  debounce(step, delay);
+};
+
+fast.onclick = () => {
+  delay = 15;
+  debounce(step, delay);
+};
