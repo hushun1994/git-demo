@@ -63,7 +63,6 @@ function step() {
   setTimeout(() => {
     if (n + 1 < str.length) {
       n += 1;
-      // str2 += str[n] === "\n" ? "<br>" : str[n];
       if (str[n] === "\n") {
         str2 += "<br>";
       } else if (str[n] === " ") {
