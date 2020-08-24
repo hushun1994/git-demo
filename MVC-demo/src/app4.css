@@ -1,0 +1,24 @@
+#app4 {
+  border: 2px solid lawngreen;
+}
+#app4 .circle {
+  width: 30vw;
+  height: 30vw;
+  border: 2px solid salmon;
+  border-radius: 50%;
+  margin: 30px auto;
+}
+@keyframes change {
+  0% {
+    background: salmon;
+  }
+  50% {
+    background: lightgreen;
+  }
+  100% {
+    background: pink;
+  }
+}
+#app4 .circle.active {
+  animation: change 1.5s linear infinite alternate-reverse;
+}

@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*::before,
+* ::after {
+  box-sizing: border-box;
+}
+ul,
+ol {
+  list-style: none;
+}
+
+body > .page {
+  display: flex;
+  flex-wrap: wrap;
+}
+body > .page > section {
+  width: 50vw;
+  height: 50vh;
+}
+
+#app1 {
+  border: 2px solid limegreen;
+}
+
+#app1 .output {
+  padding: 15px;
+}
+
+#app1 .actions button {
+  width: 40px;
+  height: 25px;
+}
+
+#app2 {
+  border: 2px solid hotpink;
+}
+
+#app2 .tab-bar {
+  display: flex;
+}
+#app2 .tab-bar > li {
+  border: 1px solid salmon;
+  width: 50%;
+  text-align: center;
+}
+#app2 .tab-bar > li.selected {
+  background: #999;
+  color: white;
+}
+#app2 .tab-content > li {
+  display: none;
+}
+#app2 .tab-content > li.active {
+  display: block;
+}
+
+#app3 {
+  border: 2px solid lightpink;
+}
+
+#app3 .square {
+  background: lightpink;
+  margin-top: 10vw;
+  margin-left: 10vw;
+  width: 10vw;
+  height: 10vw;
+  transition: all 1s;
+}
+#app3 .square.active {
+  transform: translateX(20vw);
+  background: limegreen;
+}
+
+#app4 {
+  border: 2px solid lawngreen;
+}
+#app4 .circle {
+  width: 30vw;
+  height: 30vw;
+  border: 2px solid salmon;
+  border-radius: 50%;
+  margin: 30px auto;
+}
+@keyframes change {
+  0% {
+    background: salmon;
+  }
+  50% {
+    background: lightgreen;
+  }
+  100% {
+    background: pink;
+  }
+}
+#app4 .circle.active {
+  animation: change 1.5s linear infinite alternate-reverse;
+}
+
+
+/*# sourceMappingURL=main.3866215c.css.map */

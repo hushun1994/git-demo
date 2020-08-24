@@ -1,0 +1,22 @@
+#app2 {
+  border: 2px solid hotpink;
+}
+
+#app2 .tab-bar {
+  display: flex;
+}
+#app2 .tab-bar > li {
+  border: 1px solid salmon;
+  width: 50%;
+  text-align: center;
+}
+#app2 .tab-bar > li.selected {
+  background: #999;
+  color: white;
+}
+#app2 .tab-content > li {
+  display: none;
+}
+#app2 .tab-content > li.active {
+  display: block;
+}
