@@ -1,0 +1,12 @@
+{
+  "name": "pikachu-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "parcel build src/index.html --no-minify --public-url ./"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
