@@ -119,7 +119,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"AQoi":[function(require,module,exports) {
 
-},{}],"Kk3p":[function(require,module,exports) {
+},{}],"G5yJ":[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
@@ -11205,7 +11205,7 @@ if ( typeof noGlobal === "undefined" ) {
 return jQuery;
 } );
 
-},{"process":"Kk3p"}],"US5u":[function(require,module,exports) {
+},{"process":"G5yJ"}],"US5u":[function(require,module,exports) {
 "use strict";
 
 require("./app1.css");
@@ -11307,4 +11307,4 @@ require("./app3.js");
 
 require("./app4.js");
 },{"./reset.css":"AQoi","./global.css":"AQoi","./app1.js":"US5u","./app2.js":"vZ5o","./app3.js":"y8lT","./app4.js":"eWpN"}]},{},["epB2"], null)
-//# sourceMappingURL=main.bc706aa4.js.map
+//# sourceMappingURL=main.b1db9891.js.map
