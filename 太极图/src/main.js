@@ -89,16 +89,16 @@ function debounce(fn, delay) {
 debounce(step, delay);
 
 slow.onclick = () => {
-  delay = 60;
+  delay = 50;
   debounce(step, delay);
 };
 
 average.onclick = () => {
-  delay = 30;
+  delay = 25;
   debounce(step, delay);
 };
 
 fast.onclick = () => {
-  delay = 15;
+  delay = 10;
   debounce(step, delay);
 };
