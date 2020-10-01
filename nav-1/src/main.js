@@ -1,16 +1,16 @@
 $siteList = $(".siteList");
 const $lastLi = $siteList.find("li.last");
-const x = localStorage.getItem("x");
-const xObject = JSON.parse(x);
+const urlList = localStorage.getItem("urlList");
+const xObject = JSON.parse(urlList);
 
 const hashMap = xObject || [
   {
-    logo: "a",
-    url: "https://www.acfun.cn",
+    logo: "i",
+    url: "https://www.imooc.com/",
   },
   {
-    logo: "b",
-    url: "https://www.bilibili.com",
+    logo: "j",
+    url: "https://juejin.im/",
   },
 ];
 
@@ -51,19 +51,27 @@ render();
 
 $(".addButton").on("click", () => {
   let url = window.prompt("请输入要添加的网址");
-  if (url && url.indexOf("http") !== 0) {
-    url = "https://" + url;
-    hashMap.push({
-      logo: simplifyUrl(url)[0].toLowerCase(),
-      url: url,
-    });
-    render();
+  if (url) {
+    if (url.indexOf("http") !== 0) {
+      url = "https://" + url;
+      hashMap.push({
+        logo: simplifyUrl(url)[0].toLowerCase(),
+        url: url,
+      });
+      render();
+    } else {
+      hashMap.push({
+        logo: simplifyUrl(url)[0].toLowerCase(),
+        url: url,
+      });
+      render();
+    }
   }
 });
 
 window.onbeforeunload = () => {
   const string = JSON.stringify(hashMap);
-  localStorage.setItem("x", string);
+  localStorage.setItem("urlList", string);
 };
 
 $(document).on("keypress", (e) => {

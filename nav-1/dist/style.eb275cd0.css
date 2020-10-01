@@ -124,7 +124,6 @@ body {
   position: absolute;
   top: 1px;
   right: 1px;
-  /* display: none; */
   opacity: 0.6;
 }
 @media (min-width: 500px) {
@@ -136,10 +135,6 @@ body {
     opacity: 0.6;
   }
 }
-/* .siteList .site:hover > .close {
-  display: block;
-  opacity: 0.6;
-} */
 .siteList .close .icon {
   width: 20px;
   height: 20px;
@@ -177,4 +172,4 @@ body {
 }
 
 
-/*# sourceMappingURL=style.3b2486d0.css.map */
+/*# sourceMappingURL=style.eb275cd0.css.map */

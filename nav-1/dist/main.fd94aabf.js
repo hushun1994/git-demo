@@ -120,14 +120,14 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 })({"epB2":[function(require,module,exports) {
 $siteList = $(".siteList");
 var $lastLi = $siteList.find("li.last");
-var x = localStorage.getItem("x");
-var xObject = JSON.parse(x);
+var urlList = localStorage.getItem("urlList");
+var xObject = JSON.parse(urlList);
 var hashMap = xObject || [{
-  logo: "a",
-  url: "https://www.acfun.cn"
+  logo: "i",
+  url: "https://www.imooc.com/"
 }, {
-  logo: "b",
-  url: "https://www.bilibili.com"
+  logo: "j",
+  url: "https://juejin.im/"
 }];
 
 var simplifyUrl = function simplifyUrl(url) {
@@ -153,19 +153,27 @@ render();
 $(".addButton").on("click", function () {
   var url = window.prompt("请输入要添加的网址");
 
-  if (url && url.indexOf("http") !== 0) {
-    url = "https://" + url;
-    hashMap.push({
-      logo: simplifyUrl(url)[0].toLowerCase(),
-      url: url
-    });
-    render();
+  if (url) {
+    if (url.indexOf("http") !== 0) {
+      url = "https://" + url;
+      hashMap.push({
+        logo: simplifyUrl(url)[0].toLowerCase(),
+        url: url
+      });
+      render();
+    } else {
+      hashMap.push({
+        logo: simplifyUrl(url)[0].toLowerCase(),
+        url: url
+      });
+      render();
+    }
   }
 });
 
 window.onbeforeunload = function () {
   var string = JSON.stringify(hashMap);
-  localStorage.setItem("x", string);
+  localStorage.setItem("urlList", string);
 };
 
 $(document).on("keypress", function (e) {
@@ -179,4 +187,4 @@ $(document).on("keypress", function (e) {
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.ff9cc776.js.map
+//# sourceMappingURL=main.fd94aabf.js.map
