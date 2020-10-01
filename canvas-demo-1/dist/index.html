@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas</title>
+    <link rel="stylesheet" href="/style.e308ff8e.css">
+  <script src="/style.e308ff8e.js"></script></head>
+  <body>
+    <div class="controller">
+      <button id="black">黑色</button>
+      <button id="red">红色</button>
+      <button id="green">绿色</button>
+      <button id="thin">细线</button>
+      <button id="normal">正常</button>
+      <button id="thick">粗线</button>
+      <button id="repaint">重画</button>
+    </div>
+    <canvas id="canvas"></canvas>
+
+    <script>var canvas = document.getElementById("canvas");
+canvas.width = document.documentElement.clientWidth;
+canvas.height = document.documentElement.clientHeight;
+var ctx = canvas.getContext("2d");
+var isTouchDevice = ("ontouchstart" in document.documentElement);
+var currentFill = "black";
+var currentStrokeStyle = "black";
+var currentLineWidth = 6;
+
+function init() {
+  var fillStyle = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : currentFill;
+  var strokeStyle = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : currentStrokeStyle;
+  var lineWidth = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : currentLineWidth;
+  ctx.fillStyle = fillStyle;
+  ctx.strokeStyle = strokeStyle;
+  ctx.lineWidth = lineWidth;
+  ctx.lineCap = "round";
+}
+
+init();
+var painting = false;
+
+function drawLine(x1, y1, x2, y2) {
+  ctx.beginPath();
+  ctx.moveTo(x1, y1);
+  ctx.lineTo(x2, y2);
+  ctx.stroke();
+}
+
+var x, y;
+
+if (isTouchDevice) {
+  canvas.ontouchstart = function (e) {
+    x = e.touches[0].clientX;
+    y = e.touches[0].clientY;
+  };
+
+  canvas.ontouchmove = function (e) {
+    drawLine(x, y, e.touches[0].clientX, e.touches[0].clientY);
+    x = e.touches[0].clientX;
+    y = e.touches[0].clientY;
+  };
+} else {
+  canvas.onmousedown = function (e) {
+    painting = true;
+    x = e.clientX;
+    y = e.clientY;
+  };
+
+  canvas.onmousemove = function (e) {
+    if (painting === true) {
+      drawLine(x, y, e.clientX, e.clientY);
+      x = e.clientX;
+      y = e.clientY;
+    } else {// console.log("啥也不做");
+    }
+  };
+
+  canvas.onmouseup = function () {
+    painting = false;
+  };
+}
+
+var controller = document.querySelector(".controller");
+controller.addEventListener("click", function (e) {
+  if (e.target === black) {
+    ctx.strokeStyle = "#000";
+  } else if (e.target === green) {
+    currentStrokeStyle = "green";
+    init();
+  } else if (e.target === red) {
+    currentStrokeStyle = "red";
+    init();
+  } else if (e.target === thin) {
+    currentLineWidth = 4;
+    init();
+  } else if (e.target === normal) {
+    currentLineWidth = 6;
+    init();
+  } else if (e.target === thick) {
+    currentLineWidth = 8;
+    init();
+  } else if (e.target === repaint) {
+    canvas.width = document.documentElement.clientWidth;
+    init();
+  }
+});</script>
+    <script src="/main.1f19ae8e.js"></script>
+  </body>
+</html>

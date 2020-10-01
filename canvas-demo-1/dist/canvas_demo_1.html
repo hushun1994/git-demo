@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas</title>
+    <link rel="stylesheet" href="/style.e308ff8e.css">
+  <script src="/style.e308ff8e.js"></script></head>
+  <body>
+    <div class="controller">
+      <button id="black">黑色</button>
+      <button id="blue">蓝色</button>
+      <button id="red">红色</button>
+      <button id="repaint">重画</button>
+    </div>
+    <canvas id="canvas"></canvas>
+
+    <script>var canvas = document.getElementById("canvas");
+canvas.width = document.documentElement.clientWidth;
+canvas.height = document.documentElement.clientHeight;
+var ctx = canvas.getContext("2d");
+var isTouchDevice = ("ontouchstart" in document.documentElement);
+ctx.fillStyle = "blue";
+ctx.strokeStyle = "none";
+ctx.lineWidth = 8;
+ctx.lineCap = "round";
+var painting = false;
+
+function drawLine(x1, y1, x2, y2) {
+  ctx.beginPath();
+  ctx.moveTo(x1, y1);
+  ctx.lineTo(x2, y2);
+  ctx.stroke();
+}
+
+var x, y;
+
+if (isTouchDevice) {
+  canvas.ontouchstart = function (e) {
+    x = e.touches[0].clientX;
+    y = e.touches[0].clientY;
+  };
+
+  canvas.ontouchmove = function (e) {
+    drawLine(x, y, e.touches[0].clientX, e.touches[0].clientY);
+    x = e.touches[0].clientX;
+    y = e.touches[0].clientY;
+  };
+} else {
+  canvas.onmousedown = function (e) {
+    painting = true;
+    x = e.clientX;
+    y = e.clientY;
+  };
+
+  canvas.onmousemove = function (e) {
+    if (painting === true) {
+      drawLine(x, y, e.clientX, e.clientY);
+      x = e.clientX;
+      y = e.clientY;
+    } else {// console.log("啥也不做");
+    }
+  };
+
+  canvas.onmouseup = function () {
+    painting = false;
+  };
+}
+
+var controller = document.querySelector(".controller");
+controller.addEventListener("click", function (e) {
+  if (e.target === black) {
+    console.log("black");
+  } else if (e.target === blue) {
+    ctx.fillStyle = "#46a0fc";
+  }
+});</script>
+  </body>
+</html>
