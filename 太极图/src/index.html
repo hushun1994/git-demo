@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,viewport-fit=cover"
+    />
+    <title>会动的代码</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <style id="style"></style>
+    <div id="html"></div>
+    <div class="outer">
+      <div id="div1"></div>
+    </div>
+    <div id="controler">
+      <button id="slow">慢速</button>
+      <button id="average">中速</button>
+      <button id="fast">快速</button>
+    </div>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      *::before {
+        box-sizing: border-box;
+      }
+      *::after {
+        box-sizing: border-box;
+      }
+      #html {
+        word-break: break-all;
+      }
+      #div1 {
+        position: fixed;
+        left: 50%;
+        margin-left: -100px;
+        top: 20px;
+      }
+      #div1::before {
+        content: "";
+        display: block;
+        position: absolute;
+      }
+      #div1::after {
+        content: "";
+        display: block;
+        position: absolute;
+      }
+      @media (max-width: 500px) {
+        #html {
+          height: 50vh;
+          overflow: auto;
+        }
+        #outer {
+          height: 50vh;
+        }
+        #div1 {
+          position: relative;
+          top: 50px;
+          right: 0;
+        }
+      }
+      #controler {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        right: 0;
+        top: 0;
+        padding: 15px;
+      }
+      #controler button {
+        padding: 10px 20px;
+        border-radius: 4px;
+        background: #444;
+        color: white;
+        outline: none;
+        border: none;
+        margin-bottom: 15px;
+      }
+      #controler button:hover {
+        background: #666;
+      }
+    </style>
+    <script src="./main.js"></script>
+  </body>
+</html>
